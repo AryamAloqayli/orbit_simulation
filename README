@@ -1,0 +1,94 @@
+# Orbit Simulation: Euler vs RK4
+
+This project presents a numerical simulation of planetary motion under Newtonian gravity, with a comparison between the Euler method and the fourth-order Runge–Kutta method (RK4).
+
+## Overview
+
+The motion of a planet orbiting a central star is modeled using Newton’s law of gravitation. The system is expressed as a set of coupled differential equations and solved numerically in two dimensions.
+
+Normalized units are used such that the gravitational parameter GM = 1.
+
+---
+
+## Governing Equations
+
+The gravitational force acting on the planet is given by:
+
+F = -GMm / r²  * r̂
+
+Using Newton’s second law:
+
+F = m a
+
+the acceleration becomes:
+
+a = -GM / r²  * r̂
+
+The position vector is:
+
+r = (x, y),  with  r = sqrt(x² + y²)
+
+The unit vector in the radial direction is:
+
+r̂ = (x / r, y / r)
+
+Substituting into the acceleration:
+
+a_x = -GM x / r³
+a_y = -GM y / r³
+
+---
+
+## System of Differential Equations
+
+The system is rewritten as first-order equations:
+
+dx/dt = v_x
+dy/dt = v_y
+
+dv_x/dt = -GM x / r³
+dv_y/dt = -GM y / r³
+
+These equations are solved numerically using both Euler and RK4 methods.
+
+---
+
+## Methodology
+
+* The system was implemented in Python using NumPy
+* Two numerical integration methods were applied: Euler and RK4
+* The same initial conditions were used for both methods
+* The trajectory and total energy were computed over time
+
+---
+
+## Results and Discussion
+
+The RK4 method produces a stable orbit, while the Euler method results in a spiraling trajectory due to accumulated numerical error.
+
+Energy analysis shows that:
+
+* RK4 maintains nearly constant total energy
+* Euler introduces a continuous energy drift
+
+The total energy remains negative throughout the simulation, indicating that the system is gravitationally bound.
+
+---
+
+## Conclusion
+
+This project demonstrates how the choice of numerical method significantly affects the accuracy and stability of simulations. RK4 provides a reliable solution for orbital motion, while the Euler method is insufficient for long-term integration.
+
+---
+
+## Files
+
+* main.py → simulation code
+* orbit_comparison.png → trajectory comparison
+* energy_comparison.png → energy analysis
+
+---
+
+## Notes
+
+This project highlights the process of translating physical laws into computational models and the importance of numerical accuracy in preserving physical behavior.
