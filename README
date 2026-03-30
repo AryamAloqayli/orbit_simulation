@@ -1,64 +1,91 @@
-## Orbit Simulation: Euler vs RK4
+#  Orbit Simulation: Euler vs RK4
 
 This project presents a numerical simulation of planetary motion under Newtonian gravity, with a comparison between the Euler method and the fourth-order Runge–Kutta method (RK4).
 
-## Overview
+---
+
+##  Overview
 
 The motion of a planet orbiting a central star is modeled using Newton’s law of gravitation. The system is expressed as a set of coupled differential equations and solved numerically in two dimensions.
 
-Normalized units are used such that the gravitational parameter GM = 1.
+Normalized units are used such that the gravitational parameter **GM = 1**.
 
 ---
 
-##Governing Equations
+##  Governing Equations
 
 The gravitational force acting on the planet is given by:
 
-F = -GMm / r²  * r̂
+```math
+F = -\frac{GMm}{r^2} \, \hat{r}
+```
 
 Using Newton’s second law:
 
+```math
 F = m a
+```
 
 the acceleration becomes:
 
-a = -GM / r²  * r̂
+```math
+a = -\frac{GM}{r^2} \, \hat{r}
+```
 
 The position vector is:
 
-r = (x, y),  with  r = sqrt(x² + y²)
+```math
+r = (x, y), \quad r = \sqrt{x^2 + y^2}
+```
 
 The unit vector in the radial direction is:
 
-r̂ = (x / r, y / r)
+```math
+\hat{r} = \left( \frac{x}{r}, \frac{y}{r} \right)
+```
 
 Substituting into the acceleration:
 
-a_x = -GM x / r³
-a_y = -GM y / r³
+```math
+a_x = -\frac{GM \, x}{r^3}
+```
+
+```math
+a_y = -\frac{GM \, y}{r^3}
+```
 
 ---
 
-## System of Differential Equations
+##  System of Differential Equations
 
 The system is rewritten as first-order equations:
 
-dx/dt = v_x
-dy/dt = v_y
+```math
+\frac{dx}{dt} = v_x
+```
 
-dv_x/dt = -GM x / r³
-dv_y/dt = -GM y / r³
+```math
+\frac{dy}{dt} = v_y
+```
+
+```math
+\frac{dv_x}{dt} = -\frac{GM \, x}{r^3}
+```
+
+```math
+\frac{dv_y}{dt} = -\frac{GM \, y}{r^3}
+```
 
 These equations are solved numerically using both Euler and RK4 methods.
 
 ---
 
-## Methodology
+##  Methodology
 
-* The system was implemented in Python using NumPy
-* Two numerical integration methods were applied: Euler and RK4
-* The same initial conditions were used for both methods
-* The trajectory and total energy were computed over time
+- The system was implemented in Python using NumPy  
+- Two numerical integration methods were applied: Euler and RK4  
+- The same initial conditions were used for both methods  
+- The trajectory and total energy were computed over time  
 
 ---
 
@@ -68,8 +95,8 @@ The RK4 method produces a stable orbit, while the Euler method results in a spir
 
 Energy analysis shows that:
 
-* RK4 maintains nearly constant total energy
-* Euler introduces a continuous energy drift
+- RK4 maintains nearly constant total energy  
+- Euler introduces a continuous energy drift  
 
 The total energy remains negative throughout the simulation, indicating that the system is gravitationally bound.
 
@@ -83,12 +110,6 @@ This project demonstrates how the choice of numerical method significantly affec
 
 ## Files
 
-* main.py → simulation code
-* orbit_comparison.png → trajectory comparison
-* energy_comparison.png → energy analysis
-
----
-
-## Notes
-
-This project highlights the process of translating physical laws into computational models and the importance of numerical accuracy in preserving physical behavior.
+- `main.py` → simulation code  
+- `orbit_comparison.png` → trajectory comparison  
+- `energy_comparison.png` → energy analysis  
