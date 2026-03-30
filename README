@@ -1,10 +1,10 @@
-#  Orbit Simulation: Euler vs RK4
+# Orbit Simulation: Euler vs RK4
 
 This project presents a numerical simulation of planetary motion under Newtonian gravity, with a comparison between the Euler method and the fourth-order Runge–Kutta method (RK4).
 
 ---
 
-##  Overview
+## Overview
 
 The motion of a planet orbiting a central star is modeled using Newton’s law of gravitation. The system is expressed as a set of coupled differential equations and solved numerically in two dimensions.
 
@@ -12,75 +12,53 @@ Normalized units are used such that the gravitational parameter **GM = 1**.
 
 ---
 
-##  Governing Equations
+## Governing Equations
 
 The gravitational force acting on the planet is given by:
 
-```math
-F = -\frac{GMm}{r^2} \, \hat{r}
-```
+$F = -\frac{GMm}{r^2} \hat{r}$
 
 Using Newton’s second law:
 
-```math
-F = m a
-```
+$F = m a$
 
 the acceleration becomes:
 
-```math
-a = -\frac{GM}{r^2} \, \hat{r}
-```
+$a = -\frac{GM}{r^2} \hat{r}$
 
 The position vector is:
 
-```math
-r = (x, y), \quad r = \sqrt{x^2 + y^2}
-```
+$r = (x, y), \quad r = \sqrt{x^2 + y^2}$
 
 The unit vector in the radial direction is:
 
-```math
-\hat{r} = \left( \frac{x}{r}, \frac{y}{r} \right)
-```
+$\hat{r} = \left( \frac{x}{r}, \frac{y}{r} \right)$
 
 Substituting into the acceleration:
 
-```math
-a_x = -\frac{GM \, x}{r^3}
-```
+$a_x = -\frac{GM x}{r^3}$
 
-```math
-a_y = -\frac{GM \, y}{r^3}
-```
+$a_y = -\frac{GM y}{r^3}$
 
 ---
 
-##  System of Differential Equations
+## System of Differential Equations
 
 The system is rewritten as first-order equations:
 
-```math
-\frac{dx}{dt} = v_x
-```
+$\frac{dx}{dt} = v_x$
 
-```math
-\frac{dy}{dt} = v_y
-```
+$\frac{dy}{dt} = v_y$
 
-```math
-\frac{dv_x}{dt} = -\frac{GM \, x}{r^3}
-```
+$\frac{dv_x}{dt} = -\frac{GM x}{r^3}$
 
-```math
-\frac{dv_y}{dt} = -\frac{GM \, y}{r^3}
-```
+$\frac{dv_y}{dt} = -\frac{GM y}{r^3}$
 
 These equations are solved numerically using both Euler and RK4 methods.
 
 ---
 
-##  Methodology
+## Methodology
 
 - The system was implemented in Python using NumPy  
 - Two numerical integration methods were applied: Euler and RK4  
