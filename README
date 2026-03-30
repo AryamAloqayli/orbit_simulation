@@ -1,4 +1,4 @@
-# Orbit Simulation: Euler vs RK4
+## Orbit Simulation: Euler vs RK4
 
 This project presents a numerical simulation of planetary motion under Newtonian gravity, with a comparison between the Euler method and the fourth-order Runge–Kutta method (RK4).
 
@@ -10,7 +10,7 @@ Normalized units are used such that the gravitational parameter GM = 1.
 
 ---
 
-## Governing Equations
+##Governing Equations
 
 The gravitational force acting on the planet is given by:
 
